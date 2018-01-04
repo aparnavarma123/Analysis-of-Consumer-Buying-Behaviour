@@ -1,0 +1,60 @@
+import openpyxl
+import pandas as pd
+import matplotlib.pyplot as plt
+from matplotlib.ticker import FuncFormatter
+#Actual Behaviour
+book = openpyxl.load_workbook('15002.xlsx')
+sheetR = book['Sheet5']
+l=[]
+l2=[]
+for r in range (47):
+    cell1 = sheetR.cell(row=r+2,column=13).value
+    l.append(cell1)
+for r in range (47):
+    cell1 = sheetR.cell(row=r+2,column=14).value
+    l2.append(cell1)
+print l
+print l2
+l4=[]
+l5=[]
+l6=[]
+l7=[]
+l8=[]
+l9=[]
+l12=[101,102,103,104]
+for i in range(len(l2)):
+    if l2[i]==23:
+        l4.append(l[i])
+    if l2[i]==24:
+        l5.append(l[i])
+    if l2[i]==25:
+        l6.append(l[i])
+    if l2[i]==26:
+        l7.append(l[i])
+    if l2[i]==27:
+        l8.append(l[i])
+    if l2[i]==28:
+        l9.append(l[i])
+l11=[]
+for i in range(len(l4)):
+    if l4[i]==101:
+        c=c+1
+    if l4[i]==102:
+        c1=c1+1
+    if l4[i]==103:
+        c2=c2+1
+    if l4[i]==104:
+        c3=c3+1
+l11.append(c)
+l11.append(c1)
+l11.append(c2)
+l11.append(c3)
+print l11
+
+ax,fig=plt.subplots()
+fig.barh(l12,l11)
+plt.show()
+print "a"
+
+
+
